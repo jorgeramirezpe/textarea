@@ -4,28 +4,20 @@ $(document).ready(function(){
         event.preventDefault();
 
         var first_name = $('#first_name').val(); //first_name
-        var answer = $('input[name="answer"]:checked').val();
-        var type = $('input[name="type"]:checked');
-        var types = new Array();
-        var textarea = $('#textarea').val();
+        var last_name = $('#last_name').val();
+        var career = $('input[name="career"]:checked').val();
 
-        for (var i = 0; i < type.length; i++) {
-          var temp_type = type[i];
-          types.push(temp_type.value);
         }
 
         var payload = {
           'first_name':first_name,
-          'answer':answer,
-          "types": types,
-          'textarea': textarea
+          'last_name':last_name,
+          'career':career
         }
-
+        $('#regTitle').html('#first_name');
         $.post('/find', payload);
-        $.get('/find', payload);
 
-
-
+        console.log('#last_name').val();
     });
 });
 
